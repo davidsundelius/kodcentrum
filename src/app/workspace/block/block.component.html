@@ -1,0 +1,17 @@
+<div class="block {{block.type}}"
+  [ngClass]="{'highlighted': block.isRunning}"
+  [style.left]="block.posX+'px'"
+  [style.top]="block.posY+'px'"
+  [style.background-color]="block.category"
+  [hidden]="block.hidden"
+  draggable="true"
+  (dragstart)="onBlockDragStart($event, block, false)"
+  (dragover)="allowDrop($event, block)"
+  (dragenter)="onHoverEnterBlock($event, block)"
+  (dragleave)="onHoverLeaveBlock($event, block)"
+  (drop)="onBlockAfterBlockDrop($event, block)">
+  {{block.name}}
+  <div class="scriptWrapper">
+    <app-block [block]="followingBlock" *ngFor="let followingBlock of block.getFollowingBlockList()"></app-block>
+  </div>
+</div>

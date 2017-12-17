@@ -1,0 +1,37 @@
+<div class="workspace">
+  <ngb-tabset>
+    <ngb-tab title="Skript">
+      <ng-template ngbTabContent>
+        <div class="workspaceInner">
+          <!-- Script toolbox -->
+          <ul id="toolbox" class="toolbox" (dragover)="allowDrop($event)" (drop)="onBlockToolboxDrop($event)">
+            <li *ngFor="let block of availableBlocks">
+              <app-block [block]="block"></app-block>
+            </li>
+          </ul>
+          <!-- Script area -->
+          <div id="scriptArea" class="scriptArea" (dragover)="allowDrop($event)" (drop)="onBlockScriptDrop($event)">
+            <app-block *ngFor="let block of currentSprite.scripts" [block]="block"></app-block>
+          </div>
+          <button type="button" class="btn-sm btn-info" (click)="addDummyScript()">
+            Test
+          </button>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Klädslar">
+      <ng-template ngbTabContent>
+        <div class="workspaceInner">
+          Denna funktion är inte implementerad ännu.
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="Ljud">
+      <ng-template ngbTabContent>
+        <div class="workspaceInner">
+          Denna funktion är inte implementerad ännu.
+        </div>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

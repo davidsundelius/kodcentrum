@@ -1,0 +1,100 @@
+.block {
+  border: 1px solid #000;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 8px;
+  padding: 4px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+.highlighted {
+  border: 5px solid red;
+}
+
+.scriptWrapper {
+  position: relative;
+}
+
+.scriptBlock {
+  position: absolute;
+}
+
+.followingBlock {
+  position: absolute;
+  top: 16px;
+  left: -5px;
+}
+
+.eventBlock {
+  border-radius: 4px;
+}
+.eventBlock::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 5px;
+  height: 10px;
+  width: 60px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000;
+  border-radius: 30px 30px 0 0;
+  background-color: rgb(204, 132, 0);
+  border-bottom: 0px;
+}
+.eventBlock::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 5px;
+  height: 5px;
+  width: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000;
+  border-radius: 0 0 5px 5px;
+  background-color: rgb(204, 132, 0);
+  border-top: 0px;
+}
+
+.operatorBlock {
+  border-radius: 10px;
+}
+
+.senseBlock {
+
+}
+
+.transformBlock {
+  border-radius: 4px;
+}
+.transformBlock::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 5px;
+  height: 5px;
+  width: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000;
+  border-radius: 0 0 5px 5px;
+  background-color: #ffffff;
+  border-top: 0px;
+}
+.transformBlock::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 5px;
+  height: 5px;
+  width: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #000;
+  border-radius: 0 0 5px 5px;
+  background-color: #0000ff;
+  border-top: 0px;
+}

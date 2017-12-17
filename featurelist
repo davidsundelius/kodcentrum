@@ -1,0 +1,40 @@
+Vision över features
+--------------------
+Anpassad till svensk lag, kodstugan och skolan (GDPR, enkelt att skapa klasskonton i bulk, överföra konton till privata elevkonton o.s.v.)
+Nya typer av block som drar nytta av webbläsaren (nätverksmeddelanden, Spotifyintegration(nätneutralitet?), GPS-avläsning, variabeltyper)
+Lätt att lägga till egna block via en inbyggd javascript-editor i framtiden (eventuellt)
+Inbäddad eller på annat sätt ihopbyggd med Kodboken.se
+Lägga till sökningsfunktion i galleriet
+Möjligheten att göra små justeringar baserat på elev- och volontärsfeedback
+Open source och creative commons för ALLT material som Kodcentrum använder
+Bra PR att tillhandahålla en öppen mjukvara som uppfyller allt som behövs för införandet i skolan 2018
+Ser i stortsett likadant ut som Scratch för att slippa svår övergång för lärare, elever och volontärer, samt inga anpassningar i kodboken.se till en början
+Möjligheten för lärare/kodstugor att hosta sin egen modifierade variant med anpassningar till just det de ämnar lära ut för tillfället.
+Pedagogisk möjlighet att visa "koden som kör koden" för elever och lärare och fixa saker on the fly.
+HTML5/CSS3, så möjlig att köra utan flash och på exempelvis iPad. Funderar även på att möjliggöra körandet av program (inte skapandet) som en mobilapp, något som många elever efterfrågat.
+Kanske ett bra sätt att skapa engagemang för Kodcentrum bland volontärer som gillar att koda (att bidra med pullrequests)
+Kodcentrum äger användardatan vilket exempelvis skulle kunna analyseras och ge möjlighet att se vilka block som används och ta emot direktfeedback från användarna
+Skulle kunna köras offline via exempelvis electron i framtiden.
+Snabbare att ladda och kräver mindre av datorerna som kör det (vilket möjliggör användande av relativt gamla datorer).
+WCAG2.0-anpassad alltså anpassad för diverse funktionsnedsättningar. Vid fullt implementerande ska verktyget kunna användas av blinda (kan bli svårt med drag&drop, men det blir oavsett bättre än flash).
+Möjlighet att exportera sitt program till ett standaloneprojekt (typ javascript) som faktiskt går att lägga upp själv och modifiera som eleven vill.
+Möjlighet att lägga till snabbknappar, debuggning, step through o.s.v., om inte annat för att hjälpa volontärer, men även pedagogiskt hjälpa elever att förstå konceptet med instruktioner till en dator
+
+Limitations för version 1 (relativt scratch)
+-------------------------
+Inte alla block som finns i Scratch, men möjligheten att göra typ Bugrace
+Inte jättemycket i biblioteket
+Ingen serverside, dvs. bara spara och ladda genom att ladda ned till datorn, ej heller dela projekt
+Litet fulare utseende än Scratch till en början
+Inga inbyggda hjälpfiler
+Bara svenska som språk
+Inget vektorläge i ritverktyget
+Ingen möjlighet att ladda upp egna sprites eller ljud
+
+Hjälp
+-----
+Styling (CSS)
+UX
+Bilder och ljud till både layout och till biblioteket
+Trycka ut fler block (koda)
+Feedback och idéer

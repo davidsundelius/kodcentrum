@@ -1,0 +1,86 @@
+<div class="scene">
+  <div class="titleBar">
+    <button type="button" class="btn-sm btn-info">
+      <span class="fa fa-window-maximize"></span>
+    </button>
+    <input [(ngModel)]="title" placeholder="Titel">
+
+    <button type="button" class="btn-sm btn-info" (click)="selectedTool='mouse-pointer'">
+      <span class="fa fa-mouse-pointer" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn-sm btn-info" (click)="selectedTool='compress'">
+      <span class="fa fa-compress" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn-sm btn-info" (click)="selectedTool='expand'">
+      <span class="fa fa-expand" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn-sm btn-info" (click)="selectedTool='cut'">
+      <span class="fa fa-cut" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn-sm btn-info" (click)="selectedTool='question-circle'">
+      <span class="fa fa-question-circle" aria-hidden="true"></span>
+    </button>
+
+    <button type="button" class="btn-sm btn-info" (click)="runProgram()">
+      <span class="fa fa-play" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn-sm btn-info">
+      <span class="fa fa-stop" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn-sm btn-info" (click)="saveProgram()">
+      <span class="fa fa-save" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn-sm btn-info" (click)="loadProgram()">
+      <span class="fa fa-upload" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="stage" (mousemove)="onMouseMove($event)" (drop)="onSpriteDrop($event)" (dragover)="onSpriteDrag($event)">
+    <img *ngFor="let sprite of sprites; index as i"
+         class="sprite"
+         src="/assets/{{sprite.appearance}}"
+         [style.left]="sprite.posX+'px'"
+         [style.top]="sprite.posY+'px'"
+         [style.transform]="'rotate('+(sprite.direction)+'deg)'"
+         [style.zoom]="sprite.zoom+'%'"
+         draggable="true"
+         (dragstart)="onSpriteDragStart($event, sprite)"
+         (click)="applyTool(sprite)">
+    <span class="tools">X: {{cursorX}} Y: {{cursorY}} Verktyg: <span class="fa fa-{{selectedTool}}" aria-hidden="true"></span></span>
+    <span class="coordinates">X: {{currentSprite.posX}} Y: {{currentSprite.posY}} Riktning: {{currentSprite.direction}}</span>
+  </div>
+
+  <!-- Sprite manager -->
+  <div class="titleBar">
+    Sprajtar
+    <span class="float-right">
+      Ny sprajt:
+      <button type="button" class="btn-sm btn-info" (click)="addSprite()">
+        <span class="fa fa-certificate" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="btn-sm btn-info" (click)="addSprite()">
+        <span class="fa fa-pencil-alt" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="btn-sm btn-info" (click)="addSprite()">
+        <span class="fa fa-upload" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="btn-sm btn-info" (click)="addSprite()">
+        <span class="fa fa-camera" aria-hidden="true"></span>
+      </button>
+    </span>
+  </div>
+  <div class="spriteManager">
+    <div class="backgroundManager">
+      Bakgrund
+    </div>
+    <ul class="spriteList">
+      <li class="spriteListItem"
+          *ngFor="let sprite of sprites"
+          [ngClass]="{'selected': sprite.selected}"
+          (click)="selectSprite(sprite)">
+        <img src="/assets/{{sprite.appearance}}">
+        <div>{{sprite.name}}</div>
+        <div class="deleteButton" (click)="deleteSprite(sprite)">x</div>
+      </li>
+    </ul>
+  </div>
+</div>
