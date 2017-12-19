@@ -69,7 +69,7 @@ export class SceneComponent implements OnInit {
   public addSprite() {
     this.sprites.push(new Sprite({
       name: 'Sprite ' + (this.sprites.length + 1),
-      appearance: 'sprite1.png',
+      appearance: 'assets/sprite1.png',
       posX: 0,
       posY: 80,
       direction: 0,

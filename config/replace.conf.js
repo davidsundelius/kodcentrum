@@ -1,7 +1,7 @@
 var replace = require('replace-in-file');
 var buildVersion = new Date().toISOString();
 const options = {
-  files: '../src/environments/environment.prod.ts',
+  files: './src/environments/environment.prod.ts',
   from: /{BUILD_VERSION}/g,
   to: buildVersion,
   allowEmptyPaths: false,

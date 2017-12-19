@@ -40,7 +40,7 @@
   <div class="stage" (mousemove)="onMouseMove($event)" (drop)="onSpriteDrop($event)" (dragover)="onSpriteDrag($event)">
     <img *ngFor="let sprite of sprites; index as i"
          class="sprite"
-         src="/assets/{{sprite.appearance}}"
+         src="{{sprite.appearance}}"
          [style.left]="sprite.posX+'px'"
          [style.top]="sprite.posY+'px'"
          [style.transform]="'rotate('+(sprite.direction)+'deg)'"
@@ -80,7 +80,7 @@
           *ngFor="let sprite of sprites"
           [ngClass]="{'selected': sprite.selected}"
           (click)="selectSprite(sprite)">
-        <img src="/assets/{{sprite.appearance}}">
+        <img src="{{sprite.appearance}}">
         <div>{{sprite.name}}</div>
         <div class="deleteButton" (click)="deleteSprite(sprite)">x</div>
       </li>
