@@ -1,0 +1,12 @@
+
+language: node_js
+node_js:
+  - '8'
+install: npm install
+script: ng build --prod
+addons:
+  apt:
+    packages:
+      - sshpass
+after_success:
+  - sshpass -e scp -o StrictHostKeyChecking=no -r dist/* $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH

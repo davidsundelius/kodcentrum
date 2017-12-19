@@ -4,7 +4,7 @@ import { Block } from '../../block';
 import { Sprite } from '../../sprite';
 
 export class OnStart extends Block {
-  name = "När start klickas på";
+  name = 'När start klickas på';
   type = BlockType.EVENT;
   category = Category.EVENTS;
 

@@ -8,6 +8,7 @@ import { Block } from '../../models/block';
 })
 export class BlockComponent implements OnInit {
   @Input() block: Block;
+  @Input() isTemplate: boolean;
   @Output() removeBlock = new EventEmitter();
   @Output() createCopy = new EventEmitter();
 
@@ -15,14 +16,9 @@ export class BlockComponent implements OnInit {
 
   ngOnInit() {}
 
-  private completeBlockDrop() {
-    this.liftedBlock.hidden = false;
-    this.liftedBlock = null;
-  }
-
   private assignFollowingBlock(targetBlock: Block, block: Block) {
     targetBlock.isRunning = false;
-    if(block.getIsRootBlock()) {
+    if (block.getIsRootBlock()) {
       this.removeBlock.emit(block);
     }
     targetBlock.followedBy = block;
@@ -30,11 +26,7 @@ export class BlockComponent implements OnInit {
   }
 
   public onBlockDragStart($event, block, isTemplate) {
-    if(isTemplate) {
-      this.liftedBlock = this.createNewBlock(block);
-    } else {
-      this.liftedBlock = block;
-    }
+
   }
 
   public onBlockInsideBlockDrop($event) {
@@ -42,14 +34,11 @@ export class BlockComponent implements OnInit {
   }
 
   public onBlockAfterBlockDrop($event, block) {
-    this.assignFollowingBlock(block, this.liftedBlock);
-    this.completeBlockDrop();
+    this.assignFollowingBlock(block, this.block);
   }
 
   public onHoverEnterBlock($event, block) {
-    if(this.liftedBlock !== null) {
-      block.isRunning = true;
-    }
+    block.isRunning = true;
   }
 
   public onHoverLeaveBlock($event, block) {
@@ -57,6 +46,6 @@ export class BlockComponent implements OnInit {
   }
 
   public allowDrop($event, block) {
-    return block === this.liftedBlock;
+    $event.preventDefault();
   }
 }

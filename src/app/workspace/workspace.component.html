@@ -13,9 +13,6 @@
           <div id="scriptArea" class="scriptArea" (dragover)="allowDrop($event)" (drop)="onBlockScriptDrop($event)">
             <app-block *ngFor="let block of currentSprite.scripts" [block]="block"></app-block>
           </div>
-          <button type="button" class="btn-sm btn-info" (click)="addDummyScript()">
-            Test
-          </button>
         </div>
       </ng-template>
     </ngb-tab>

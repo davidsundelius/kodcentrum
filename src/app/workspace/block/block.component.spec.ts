@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { Block } from '../../models/block';
 import { BlockComponent } from './block.component';
 
 describe('BlockComponent', () => {
@@ -16,6 +17,7 @@ describe('BlockComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BlockComponent);
     component = fixture.componentInstance;
+    component.block = new Block();
     fixture.detectChanges();
   });
 

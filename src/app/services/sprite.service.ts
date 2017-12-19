@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Sprite } from '../models/sprite';
 
 @Injectable()
@@ -10,10 +11,10 @@ export class SpriteService {
   constructor() { }
 
   public setCurrentSprite(sprite: Sprite) {
-    this.currentSprite.next(sprite)
+    this.currentSprite.next(sprite);
   }
 
-  public getCurrentSprite() : Observable<Sprite> {
+  public getCurrentSprite(): Observable<Sprite> {
     return this.currentSprite;
   }
 }

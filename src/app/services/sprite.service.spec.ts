@@ -1,5 +1,4 @@
 import { TestBed, inject } from '@angular/core/testing';
-
 import { SpriteService } from './sprite.service';
 
 describe('SpriteService', () => {

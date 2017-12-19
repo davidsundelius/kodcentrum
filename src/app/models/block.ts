@@ -9,8 +9,8 @@ export class Block {
 
   posX: number;
   posY: number;
-  hidden: boolean = false;
-  isRunning: boolean = false;
+  hidden = false;
+  isRunning = false;
 
   followed: Block = null;
   followedBy: Block = null;
@@ -27,13 +27,13 @@ export class Block {
     this.isRunning = true;
     this.runScript(sprite);
     this.isRunning = false;
-    if(this.followedBy !== null) {
+    if (this.followedBy !== null) {
       this.followedBy.interpret(sprite);
     }
-  };
+  }
 
   getFollowingBlockList(): Block[] {
-    if(this.followedBy !== null) {
+    if (this.followedBy !== null) {
       return [this.followedBy].concat(this.followedBy.getFollowingBlockList());
     } else {
       return [];
@@ -41,6 +41,6 @@ export class Block {
   }
 
   getIsRootBlock(): boolean {
-    return (this.followed === null && includedIn === null);
+    return (this.followed === null && this.includedIn === null);
   }
 }

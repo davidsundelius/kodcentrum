@@ -1,7 +1,7 @@
 import { Sprite } from './sprite';
 
 export class State {
-  public title: string = 'Inget namn';
+  public title = 'Inget namn';
   public currentSprite: Sprite;
   public sprites: Sprite[] = [];
 

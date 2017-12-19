@@ -11,14 +11,14 @@ import { SaveService } from '../services/save.service';
   styleUrls: ['./scene.component.css']
 })
 export class SceneComponent implements OnInit {
-  //State of program
-  public title: string = 'Inget namn';
+  // State of program
+  public title = 'Inget namn';
   public currentSprite: Sprite;
   public sprites: Sprite[] = [];
-  //State of cursor
-  public selectedTool: string = 'mouse-pointer';
-  public cursorX: number = 0;
-  public cursorY: number = 0;
+  // State of cursor
+  public selectedTool = 'mouse-pointer';
+  public cursorX = 0;
+  public cursorY = 0;
 
   constructor(private spriteService: SpriteService, private eventService: EventService, private saveService: SaveService) { }
 
@@ -30,8 +30,8 @@ export class SceneComponent implements OnInit {
     this.sprites.forEach((sprite) => {
       sprite.scripts.forEach((block) => {
         block.interpret(sprite);
-      })
-    })
+      });
+    });
   }
 
   public onMouseMove($event) {
@@ -52,36 +52,36 @@ export class SceneComponent implements OnInit {
   }
 
   public applyTool(sprite) {
-    switch(this.selectedTool) {
+    switch (this.selectedTool) {
       case 'compress':
-        sprite.zoom-=10;
+        sprite.zoom -= 10;
         break;
       case 'expand':
-        sprite.zoom+=10;
+        sprite.zoom += 10;
         break;
       case 'cut':
         this.deleteSprite(sprite);
-        this.selectedTool='mouse-pointer';
+        this.selectedTool = 'mouse-pointer';
         break;
     }
   }
 
   public addSprite() {
     this.sprites.push(new Sprite({
-      name: "Sprite " + (this.sprites.length + 1),
-      appearance: "sprite1.png",
+      name: 'Sprite ' + (this.sprites.length + 1),
+      appearance: 'sprite1.png',
       posX: 0,
       posY: 80,
       direction: 0,
       zoom: 100,
       scripts: []
     }));
-    this.selectSprite(this.sprites[this.sprites.length-1]);
+    this.selectSprite(this.sprites[this.sprites.length - 1]);
   }
 
   public deleteSprite(sprite: Sprite) {
-    for(var i = this.sprites.length - 1; i >= 0; i--) {
-      if(this.sprites[i] === sprite) {
+    for (let i = this.sprites.length - 1; i >= 0; i--) {
+      if (this.sprites[i] === sprite) {
          this.sprites.splice(i, 1);
       }
     }
@@ -101,7 +101,15 @@ export class SceneComponent implements OnInit {
       title: this.title,
       currentSprite: this.currentSprite,
       sprites: this.sprites
-    }))
+    }));
+  }
+
+  public saveProgramAsFile() {
+    this.saveService.saveAsFile(new State({
+      title: this.title,
+      currentSprite: this.currentSprite,
+      sprites: this.sprites
+    }));
   }
 
   public loadProgram() {
