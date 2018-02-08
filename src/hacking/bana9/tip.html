@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Kodcentrumhacking - Bana 9</title>
+    <link rel="stylesheet" type="text/css" href="../styling.css">
+  </head>
+  <body>
+    <h1>Kodcentrumhacking - Bana 9 - Kryptering</h1>
+    <p class="successMessage">Bra jobbat du klarade den åttonde banan!</p>
+    <p class="tip">Ledtråd: Nu har vi krypterat (kryptering är ett sätt att dölja lösenord) lösenordet. En fiffig sak här är att det går att avkryptera (läsa lösenordet i klartext) genom att försöka härma koden.</p>
+
+
+    <form onsubmit="return tryPassword()">
+      <input id="password" autocomplete="off" type="text" /><br><br>
+      <span id="error" class="hidden error">Lösenordet du angav var fel.</span><br><br>
+      <input type="submit" value="Gå vidare" />
+    </form>
+
+    <script>
+      function tryPassword() {
+        var password = document.getElementById('password').value;
+        if(password === unescape('%63%61%65%73%61%72')) {
+          location.href = '../bana10/'+password+'.html';
+        } else {
+          document.getElementById('error').className = 'error';
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

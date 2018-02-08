@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Kodcentrumhacking - Bana 10</title>
+    <link rel="stylesheet" type="text/css" href="../styling.css">
+  </head>
+  <body>
+    <h1>Kodcentrumhacking - Bana 10 - Caesarkrypto</h1>
+    <p class="successMessage">Bra jobbat du klarade den nionde banan!</p>
+    <p class="tip">Ledtråd: Ett av världens första sätt att kryptera koder och meddelanden var den romerska kejsaren Caesars egna sätt. Detta kallas för Caesarkrypto och använder en översättningsnyckel. I den vänstra kolumnen står bokstaven som krypterat blir den högra bokstaven. Försök att knäcka koden!</p>
+
+    Krypterat lösenord: <b>mdydvfulsw</b><br>
+    Nyckel:
+    <table border=1 align="center">
+      <tr><td>a</td><td>d</td></tr>
+      <tr><td>b</td><td>e</td></tr>
+      <tr><td>c</td><td>f</td></tr>
+      <tr><td>d</td><td>g</td></tr>
+      <tr><td>e</td><td>h</td></tr>
+      <tr><td>f</td><td>i</td></tr>
+      <tr><td>g</td><td>j</td></tr>
+      <tr><td>h</td><td>k</td></tr>
+      <tr><td>i</td><td>l</td></tr>
+      <tr><td>j</td><td>m</td></tr>
+      <tr><td>k</td><td>n</td></tr>
+      <tr><td>l</td><td>o</td></tr>
+      <tr><td>m</td><td>p</td></tr>
+      <tr><td>n</td><td>q</td></tr>
+      <tr><td>o</td><td>r</td></tr>
+      <tr><td>p</td><td>s</td></tr>
+      <tr><td>q</td><td>t</td></tr>
+      <tr><td>r</td><td>u</td></tr>
+      <tr><td>s</td><td>v</td></tr>
+      <tr><td>t</td><td>w</td></tr>
+      <tr><td>u</td><td>x</td></tr>
+      <tr><td>v</td><td>y</td></tr>
+      <tr><td>w</td><td>z</td></tr>
+      <tr><td>x</td><td>å</td></tr>
+      <tr><td>y</td><td>ä</td></tr>
+      <tr><td>z</td><td>ö</td></tr>
+      <tr><td>å</td><td>a</td></tr>
+      <tr><td>ä</td><td>b</td></tr>
+      <tr><td>ö</td><td>c</td></tr>
+    </table><br><br>
+
+    <form onsubmit="return tryPassword()">
+      <input id="password" autocomplete="off" type="text" /><br><br>
+      <span id="error" class="hidden error">Lösenordet du angav var fel.</span><br><br>
+      <input type="submit" value="Gå vidare" />
+    </form>
+
+    <script>
+      function tryPassword() {
+        var password = document.getElementById('password').value;
+        location.href = '../bana11/'+password+'.html';
+        return false;
+      }
+    </script>
+  </body>
+</html>

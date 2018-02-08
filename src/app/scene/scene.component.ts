@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Sprite } from '../models/sprite';
+import { Appearance } from '../models/appearance';
 import { State } from '../models/state';
 import { SpriteService } from '../services/sprite.service';
 import { EventService } from '../services/event.service';
@@ -69,7 +70,8 @@ export class SceneComponent implements OnInit {
   public addSprite() {
     this.sprites.push(new Sprite({
       name: 'Sprite ' + (this.sprites.length + 1),
-      appearance: 'assets/sprite1.png',
+      appearances: [new Appearance({name: 'Klädsel 1', bitmap: 'assets/sprite1.png'})],
+      currentAppearance: 0,
       posX: 0,
       posY: 80,
       direction: 0,

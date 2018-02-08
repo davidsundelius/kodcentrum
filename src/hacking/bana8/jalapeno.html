@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Kodcentrumhacking - Bana 8</title>
+    <link rel="stylesheet" type="text/css" href="../styling.css">
+  </head>
+  <body>
+    <h1>Kodcentrumhacking - Bana 8 - Elementvärde</h1>
+    <p class="successMessage">Bra jobbat du klarade den sjunde banan!</p>
+    <p id="ledtrad" class="tip">Ledtråd: Nu är lösenordet plockat från ett element på sidan.</p>
+
+
+    <form onsubmit="return tryPassword()">
+      <input id="password" autocomplete="off" type="text" /><br><br>
+      <span id="error" class="hidden error">Lösenordet du angav var fel.</span><br><br>
+      <input type="submit" value="Gå vidare" />
+    </form>
+
+    <script>
+      function tryPassword() {
+        var password = document.getElementById('password').value;
+        if(password === document.getElementById('ledtrad').className) {
+          location.href = '../bana9/'+password+'.html';
+        } else {
+          document.getElementById('error').className = 'error';
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

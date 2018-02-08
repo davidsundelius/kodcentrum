@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Kodcentrumhacking - Bana 3</title>
+    <link rel="stylesheet" type="text/css" href="../styling.css">
+  </head>
+  <body>
+    <h1>Kodcentrumhacking - Bana 3 - Gurtav Vasa</h1>
+    <p class="successMessage">Bra jobbat du klarade den andra banan!</p>
+    <p class="tip">Ledtråd: Året som Gustav Vasa blev kung. Kom ihåg att alla hjälpmedel är okey.</p>
+
+
+
+    <form onsubmit="return tryPassword()">
+      <input id="password" autocomplete="off" type="text" /><br><br>
+      <span id="error" class="hidden error">Lösenordet du angav var fel.</span><br><br>
+      <input type="submit" value="Gå vidare" />
+    </form>
+
+
+
+    <script>
+      function tryPassword() {
+        var password = document.getElementById('password').value;
+        if(password === '1523') {
+          location.href = '../bana4/'+password+'.html';
+        } else {
+          document.getElementById('error').className = 'error';
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

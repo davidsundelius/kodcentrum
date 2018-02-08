@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Kodcentrumhacking - Bana 7</title>
+    <link rel="stylesheet" type="text/css" href="../styling.css">
+  </head>
+  <body>
+    <h1>Kodcentrumhacking - Bana 7 - marf-hco-kaB</h1>
+    <p class="successMessage">Bra jobbat du klarade den sjätte banan!</p>
+    <p class="tip">Ledtråd: Det är något klurigt med lösenordet i koden.</p>
+
+
+    <form onsubmit="return tryPassword()">
+      <input id="password" autocomplete="off" type="text" /><br><br>
+      <span id="error" class="hidden error">Lösenordet du angav var fel.</span><br><br>
+      <input type="submit" value="Gå vidare" />
+    </form>
+
+    <script>
+      function tryPassword() {
+        var password = document.getElementById('password').value;
+        if(password === 'onepalaj'.split("").reverse().join("")) {
+          location.href = '../bana8/'+password+'.html';
+        } else {
+          document.getElementById('error').className = 'error';
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

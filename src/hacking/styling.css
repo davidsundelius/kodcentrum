@@ -1,0 +1,31 @@
+body {
+  text-align: center;
+  background-color: #fff;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.white {
+  color: #fff;
+}
+
+.error {
+  color: #f00;
+}
+
+.successMessage {
+
+}
+
+.tip {
+
+}
+
+.underCat {
+  margin-top: -50px;
+  margin-bottom: 50px;
+  z-index: -1;
+  position: relative;
+}

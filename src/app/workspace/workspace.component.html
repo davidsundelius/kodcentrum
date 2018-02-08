@@ -5,7 +5,23 @@
         <div class="workspaceInner">
           <!-- Script toolbox -->
           <ul id="toolbox" class="toolbox" (dragover)="allowDrop($event)" (drop)="onBlockToolboxDrop($event)">
-            <li *ngFor="let block of availableBlocks">
+            <li>
+              <div class="categoryList">
+                <button class="category" [ngClass]="{'selected': currentCategory === categories.MOTION}" (click)="currentCategory = categories.MOTION">Rörelse</button>
+                <button class="category" [ngClass]="{'selected': currentCategory === categories.LOOKS}" (click)="currentCategory = categories.LOOKS">Utseende</button>
+                <button class="category" [ngClass]="{'selected': currentCategory === categories.SOUND}" (click)="currentCategory = categories.SOUND">Ljud</button>
+                <button class="category" [ngClass]="{'selected': currentCategory === categories.PEN}" (click)="currentCategory = categories.PEN">Penna</button>
+                <button class="category" [ngClass]="{'selected': currentCategory === categories.DATA}" (click)="currentCategory = categories.DATA">Data</button>
+              </div>
+              <div class="categoryList">
+                <button class="category" [ngClass]="{'selected': currentCategory === categories.EVENTS}" (click)="currentCategory = categories.EVENTS">Händelser</button>
+                <button class="category" [ngClass]="{'selected': currentCategory === categories.CONTROL}" (click)="currentCategory = categories.CONTROL">Kontroll</button>
+                <button class="category" [ngClass]="{'selected': currentCategory === categories.SENSING}" (click)="currentCategory = categories.SENSING">Känna av</button>
+                <button class="category" [ngClass]="{'selected': currentCategory === categories.OPERATORS}" (click)="currentCategory = categories.OPERATORS">Operatorer</button>
+                <button class="category" [ngClass]="{'selected': currentCategory === categories.BLOCKS}" (click)="currentCategory = categories.MORE_BLOCKS">Fler block</button>
+              </div>
+            <li>
+            <li *ngFor="let block of availableBlocks" [hidden]="block.category !== currentCategory">
               <app-block [block]="block"></app-block>
             </li>
           </ul>
@@ -19,7 +35,16 @@
     <ngb-tab title="Klädslar">
       <ng-template ngbTabContent>
         <div class="workspaceInner">
-          Denna funktion är inte implementerad ännu.
+          <ul id="styles" class="toolbox">
+            <li *ngFor="let appearance of currentSprite.appearances; let i = index"
+                class="appearancePreview"
+                [ngClass]="{'selected': currentSprite.currentAppearance === i}"
+                (click)="selectAppearance(i)">
+              <img src="{{appearance.bitmap}}" alt="{{appearance.name}}">
+              {{appearance.name}}
+            </li>
+          </ul>
+          <canvas #canvas id="canvas" class="canvas"></canvas>
         </div>
       </ng-template>
     </ngb-tab>
